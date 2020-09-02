@@ -1,1 +1,1 @@
-# Meat&Cheese Galactic 2 (Client)
+# Meat&Cheese Galactic (Client)
