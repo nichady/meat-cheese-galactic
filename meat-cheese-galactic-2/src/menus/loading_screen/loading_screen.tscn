@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/menus/loading_screen/space_blue.png" type="Texture" id=1]
+[ext_resource path="res://src/menus/loading_screen/space_red.png" type="Texture" id=2]
+[ext_resource path="res://src/menus/loading_screen/grayscale.shader" type="Shader" id=3]
+[ext_resource path="res://src/menus/loading_screen/grayscale.anim" type="Animation" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/grayscale = 0.0
+
+[node name="LoadingScreen" type="Control"]
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Control" parent="."]
+material = SubResource( 1 )
+margin_left = 0.5
+margin_right = 0.5
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="TextureRect" parent="Background"]
+use_parent_material = true
+margin_right = 2048.0
+margin_bottom = 1200.0
+texture = ExtResource( 1 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" type="TextureRect" parent="Background"]
+visible = false
+use_parent_material = true
+margin_right = 2048.0
+margin_bottom = 1200.0
+texture = ExtResource( 2 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+anims/grayscale = ExtResource( 4 )

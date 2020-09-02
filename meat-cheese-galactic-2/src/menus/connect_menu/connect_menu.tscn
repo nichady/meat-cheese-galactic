@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/connect_menu/connect_menu.gd" type="Script" id=1]
+
+[node name="ConnectMenu" type="Control"]
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="."]
+margin_left = 392.0
+margin_top = 178.0
+margin_right = 632.0
+margin_bottom = 202.0
+align = 1
+max_length = 16
+context_menu_enabled = false
+placeholder_text = "Username"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 244.354
+margin_right = 1012.0
+margin_bottom = 258.354
+text = "Enter a username."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connect" type="Button" parent="."]
+margin_left = 437.0
+margin_top = 300.0
+margin_right = 587.0
+margin_bottom = 320.0
+disabled = true
+text = "Connect to Server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="Username" to="." method="_on_Username_text_changed"]
+[connection signal="pressed" from="Connect" to="." method="_on_Connect_pressed"]

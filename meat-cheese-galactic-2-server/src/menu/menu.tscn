@@ -1,0 +1,546 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/menu/game.gd" type="Script" id=1]
+[ext_resource path="res://src/menu/users.gd" type="Script" id=2]
+[ext_resource path="res://src/menu/chat.gd" type="Script" id=3]
+[ext_resource path="res://src/menu/world.gd" type="Script" id=4]
+
+[node name="Menu" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+tab_align = 0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Game" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="UsersConnected" type="Label" parent="TabContainer/Game"]
+margin_top = 209.0
+margin_right = 129.0
+margin_bottom = 223.0
+text = "0 users online"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayersIngame" type="Label" parent="TabContainer/Game"]
+margin_top = 229.0
+margin_right = 129.0
+margin_bottom = 243.0
+text = "0 players ingame"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spectators" type="Label" parent="TabContainer/Game"]
+margin_top = 249.0
+margin_right = 129.0
+margin_bottom = 263.0
+text = "0 spectators"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State" type="Label" parent="TabContainer/Game"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "IDLE"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="TabContainer/Game"]
+margin_left = 189.0
+margin_top = 140.0
+margin_right = 317.0
+margin_bottom = 160.0
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="Label" parent="TabContainer/Game"]
+margin_left = 189.0
+margin_top = 100.0
+margin_right = 317.0
+margin_bottom = 120.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Users" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Users"]
+margin_right = 297.0
+margin_bottom = 229.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Tabs" parent="TabContainer/Users/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Keys" type="VBoxContainer" parent="TabContainer/Users/TabContainer/Info"]
+visible = false
+margin_right = 113.0
+margin_bottom = 197.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="Label" parent="TabContainer/Users/TabContainer/Info/Keys"]
+margin_right = 113.0
+margin_bottom = 14.0
+text = "Username:"
+
+[node name="ID" type="Label" parent="TabContainer/Users/TabContainer/Info/Keys"]
+margin_top = 18.0
+margin_right = 113.0
+margin_bottom = 32.0
+text = "ID:"
+
+[node name="SystemName" type="Label" parent="TabContainer/Users/TabContainer/Info/Keys"]
+margin_top = 36.0
+margin_right = 113.0
+margin_bottom = 50.0
+text = "System Name:"
+
+[node name="Team" type="Label" parent="TabContainer/Users/TabContainer/Info/Keys"]
+margin_top = 54.0
+margin_right = 113.0
+margin_bottom = 68.0
+text = "Team:"
+
+[node name="Status" type="Label" parent="TabContainer/Users/TabContainer/Info/Keys"]
+margin_top = 72.0
+margin_right = 113.0
+margin_bottom = 86.0
+text = "Status:"
+
+[node name="Values" type="VBoxContainer" parent="TabContainer/Users/TabContainer/Info"]
+visible = false
+margin_left = 113.0
+margin_right = 289.0
+margin_bottom = 197.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="Label" parent="TabContainer/Users/TabContainer/Info/Values"]
+margin_right = 176.0
+margin_bottom = 14.0
+clip_text = true
+
+[node name="ID" type="Label" parent="TabContainer/Users/TabContainer/Info/Values"]
+margin_top = 18.0
+margin_right = 176.0
+margin_bottom = 32.0
+clip_text = true
+
+[node name="SystemName" type="Label" parent="TabContainer/Users/TabContainer/Info/Values"]
+margin_top = 36.0
+margin_right = 176.0
+margin_bottom = 50.0
+clip_text = true
+
+[node name="Team" type="Label" parent="TabContainer/Users/TabContainer/Info/Values"]
+margin_top = 54.0
+margin_right = 176.0
+margin_bottom = 68.0
+clip_text = true
+
+[node name="Status" type="Label" parent="TabContainer/Users/TabContainer/Info/Values"]
+margin_top = 72.0
+margin_right = 176.0
+margin_bottom = 86.0
+clip_text = true
+
+[node name="Preview" type="Tabs" parent="TabContainer/Users/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ViewportContainer" type="ViewportContainer" parent="TabContainer/Users/TabContainer/Preview"]
+margin_right = 193.0
+margin_bottom = 193.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="TabContainer/Users/TabContainer/Preview/ViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Spectate" type="Button" parent="TabContainer/Users/TabContainer/Preview"]
+margin_left = 198.786
+margin_top = 2.0
+margin_right = 265.786
+margin_bottom = 22.0
+text = "Spectate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="GridContainer" parent="TabContainer/Users"]
+margin_top = 243.0
+margin_right = 307.0
+margin_bottom = 263.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeTeam" type="Button" parent="TabContainer/Users/Buttons"]
+margin_right = 97.0
+margin_bottom = 20.0
+disabled = true
+text = "Change Team"
+
+[node name="KickPlayer" type="Button" parent="TabContainer/Users/Buttons"]
+margin_left = 101.0
+margin_right = 182.0
+margin_bottom = 20.0
+disabled = true
+text = "Kick Player"
+
+[node name="MessagePlayer" type="Button" parent="TabContainer/Users/Buttons"]
+margin_left = 186.0
+margin_right = 297.0
+margin_bottom = 20.0
+disabled = true
+text = "Message Player"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Users"]
+margin_left = 317.0
+margin_right = 506.0
+margin_bottom = 20.0
+text = "All (0)"
+items = [ "All (0)", null, false, 0, null, "Blue (0)", null, false, 1, null, "Red (0)", null, false, 2, null, "No Team (0)", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UserList" type="ItemList" parent="TabContainer/Users"]
+margin_left = 317.0
+margin_top = 30.0
+margin_right = 502.0
+margin_bottom = 263.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popups" type="Node" parent="TabContainer/Users"]
+
+[node name="Darkener" type="Panel" parent="TabContainer/Users/Popups"]
+visible = false
+modulate = Color( 0, 0, 0, 0.47451 )
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeTeam" type="PopupDialog" parent="TabContainer/Users/Popups"]
+margin_left = 156.0
+margin_top = 114.0
+margin_right = 356.0
+margin_bottom = 209.0
+popup_exclusive = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Users/Popups/ChangeTeam"]
+margin_right = 200.0
+margin_bottom = 36.0
+text = "Change to which team?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Warning" type="Label" parent="TabContainer/Users/Popups/ChangeTeam"]
+visible = false
+margin_top = 27.5853
+margin_right = 200.0
+margin_bottom = 41.5853
+custom_colors/font_color = Color( 1, 0.980392, 0, 1 )
+text = "(Changes will apply next game)"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="Button" parent="TabContainer/Users/Popups/ChangeTeam"]
+margin_left = 12.5435
+margin_top = 65.0
+margin_right = 24.5435
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0, 0.552941, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0.552941, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.552941, 1, 1 )
+text = "Blue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" type="Button" parent="TabContainer/Users/Popups/ChangeTeam"]
+margin_left = 82.0
+margin_top = 65.0
+margin_right = 118.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Red"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="None" type="Button" parent="TabContainer/Users/Popups/ChangeTeam"]
+margin_left = 141.455
+margin_top = 65.0
+margin_right = 187.455
+margin_bottom = 85.0
+text = "None"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KickPlayer" type="PopupDialog" parent="TabContainer/Users/Popups"]
+margin_left = 156.0
+margin_top = 114.0
+margin_right = 356.0
+margin_bottom = 209.0
+popup_exclusive = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Users/Popups/KickPlayer"]
+margin_right = 200.0
+margin_bottom = 47.0
+text = "Kick nichdy?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok" type="Button" parent="TabContainer/Users/Popups/KickPlayer"]
+margin_left = 55.7977
+margin_top = 65.0
+margin_right = 85.7977
+margin_bottom = 85.0
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="TabContainer/Users/Popups/KickPlayer"]
+margin_left = 87.455
+margin_top = 65.0
+margin_right = 141.455
+margin_bottom = 85.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Chat" type="RichTextLabel" parent="TabContainer/Chat"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 367.0
+margin_bottom = 229.0
+rect_clip_content = false
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Chat/Chat"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = -5.0
+mouse_filter = 2
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="GridContainer" parent="TabContainer/Chat"]
+margin_left = 367.0
+margin_right = 502.0
+margin_bottom = 229.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MuteChat" type="CheckBox" parent="TabContainer/Chat/Settings"]
+margin_right = 93.0
+margin_bottom = 24.0
+text = "Mute Chat"
+
+[node name="ChatInput" type="LineEdit" parent="TabContainer/Chat"]
+margin_top = 237.0
+margin_right = 367.0
+margin_bottom = 261.0
+max_length = 256
+context_menu_enabled = false
+clear_button_enabled = true
+placeholder_text = "Send Chat Message"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="TabContainer/Chat"]
+margin_left = 389.238
+margin_top = 237.0
+margin_right = 500.238
+margin_bottom = 261.0
+text = "Message Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="World" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ViewWorld" type="Button" parent="TabContainer/World"]
+margin_left = 210.0
+margin_right = 290.0
+margin_bottom = 20.0
+disabled = true
+text = "View World"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="PopupDialog" parent="TabContainer/World"]
+margin_right = 389.0
+margin_bottom = 209.0
+popup_exclusive = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="TabContainer/World/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="TabContainer/World/Popup/ViewportContainer"]
+size = Vector2( 389, 209 )
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="TabContainer/World/Popup/ViewportContainer/Viewport"]
+current = true
+zoom = Vector2( 4, 4 )
+
+[node name="Label" type="Label" parent="TabContainer/World/Popup"]
+anchor_right = 1.0
+margin_bottom = 14.0
+text = "Press escape to stop viewing"
+align = 1
+
+[node name="Advanced" type="Label" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+[connection signal="pressed" from="TabContainer/Game/Play" to="TabContainer/Game" method="_on_Play_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Buttons/ChangeTeam" to="TabContainer/Users" method="_on_ChangeTeam_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Buttons/KickPlayer" to="TabContainer/Users" method="_on_KickPlayer_pressed"]
+[connection signal="item_selected" from="TabContainer/Users/OptionButton" to="TabContainer/Users" method="_on_OptionButton_item_selected"]
+[connection signal="item_selected" from="TabContainer/Users/UserList" to="TabContainer/Users" method="_on_UserList_item_selected"]
+[connection signal="pressed" from="TabContainer/Users/Popups/ChangeTeam/Blue" to="TabContainer/Users" method="_on_ChangeTeam_Blue_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Popups/ChangeTeam/Red" to="TabContainer/Users" method="_on_ChangeTeam_Red_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Popups/ChangeTeam/None" to="TabContainer/Users" method="_on_ChangeTeam_None_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Popups/KickPlayer/Ok" to="TabContainer/Users" method="_on_KickPlayer_Ok_pressed"]
+[connection signal="pressed" from="TabContainer/Users/Popups/KickPlayer/Cancel" to="TabContainer/Users" method="_on_KickPlayer_Cancel_pressed"]
+[connection signal="text_entered" from="TabContainer/Chat/ChatInput" to="TabContainer/Chat" method="_on_ChatInput_text_entered"]
+[connection signal="pressed" from="TabContainer/World/ViewWorld" to="TabContainer/World" method="_on_ViewWorld_pressed"]

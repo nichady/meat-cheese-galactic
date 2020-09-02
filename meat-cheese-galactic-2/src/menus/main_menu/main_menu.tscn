@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/main_menu/main_menu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="RichTextLabel" parent="."]
+margin_left = 272.0
+margin_top = 113.0
+margin_right = 780.0
+margin_bottom = 470.0
+rect_clip_content = false
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Chat"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+mouse_filter = 2
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatInput" type="LineEdit" parent="."]
+margin_left = 272.0
+margin_top = 484.0
+margin_right = 780.0
+margin_bottom = 510.0
+placeholder_text = "Send Chat Message"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="ChatInput" to="." method="_on_ChatInput_text_entered"]

@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://src/entities/entity.gd"
+}, {
+"base": "Entity",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/entities/player/player.gd"
+} ]
+_global_script_class_icons={
+"Entity": "",
+"Player": ""
+}
+
+[application]
+
+config/name="Meat&Cheese Galactic 2 Server"
+run/main_scene="res://src/menu/menu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+CSUtility="*res://src/autoload/CSUtility.cs"
+Globals="*res://src/autoload/globals.gd"
+Events="*res://src/autoload/events.gd"
+Lobby="*res://src/autoload/lobby.gd"
+Network="*res://src/autoload/network.gd"
+Chat="*res://src/autoload/chat.gd"
+Game="*res://src/autoload/game.gd"
+
+[display]
+
+window/size/width=512
+window/size/height=300
+window/size/resizable=false
+
+[physics]
+
+2d/default_gravity=0

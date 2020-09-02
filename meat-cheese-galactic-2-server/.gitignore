@@ -1,0 +1,13 @@
+# godot-specific
+/.import/
+
+# mono-specific
+/.mono/
+/mono/
+
+# editor-specific
+/.vs/
+/.vscode/
+
+# build/export path
+/export/

@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Player" type="Node2D"]
+
+[node name="Body" type="RigidBody2D" parent="."]
+
+[node name="Polygon" type="CollisionPolygon2D" parent="Body"]
+
+[node name="Sprite" type="Sprite" parent="."]
