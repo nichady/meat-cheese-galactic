@@ -11,23 +11,25 @@ func _ready():
 
 # maybe move to entities?
 func spawn_players():
-	var users = Lobby.get_blues()
-	var points = []
-	match users.size():
-		1, 3, 5:
-			points.append($Spawnpoints/Blue/Front)
-			continue
-		2, 3, 4, 5:
-			points.append($Spawnpoints/Blue/Left1)
-			points.append($Spawnpoints/Blue/Right1)
-			continue
-		4, 5:
-			points.append($Spawnpoints/Blue/Left2)
-			points.append($Spawnpoints/Blue/Right2)
-			continue
-	points.shuffle()
-	for i in users.size():
-		$Entities.spawn("player.trey", points[i].position, {
-			"team": 0,
-			"user": users[i],
-		})
+	for team in 2:
+		var users = Lobby.get_blues() if team == 0 else Lobby.get_reds()
+		var points = []
+		var sp = $Spawnpoints/Blue if team == 0 else $Spawnpoints/Red
+		match users.size():
+			1, 3, 5:
+				points.append(sp.get_child("Front"))
+				continue
+			2, 3, 4, 5:
+				points.append(sp.get_child("Left1"))
+				points.append(sp.get_child("Right1"))
+				continue
+			4, 5:
+				points.append(sp.get_child("Left2"))
+				points.append(sp.get_child("Right2"))
+				continue
+		points.shuffle()
+		for i in users.size():
+			$Entities.spawn("player.trey", points[i].position, {
+				"team": team,
+				"user": users[i],
+			})
