@@ -1,2 +1,2 @@
-# meat-cheese-galactic
+# Meat&Cheese Galactic
  
