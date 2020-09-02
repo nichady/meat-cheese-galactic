@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{189E17AD-1E83-4D99-96DA-93553912D0F6}</ProjectGuid>
+    <ProjectGuid>{FDFDBEF2-549A-4AE1-BF3E-DC50CBD18AE5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
     <RootNamespace>MeatCheeseGalacticServer</RootNamespace>
@@ -47,18 +47,18 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <Reference Include="GodotSharp">
-      <HintPath>$(ProjectDir)\.mono\assemblies\$(ApiConfiguration)\GodotSharp.dll</HintPath>
       <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharp.dll</HintPath>
     </Reference>
     <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Debug' ">
-      <HintPath>$(ProjectDir)\.mono\assemblies\$(ApiConfiguration)\GodotSharpEditor.dll</HintPath>
       <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-	<Compile Include="src\autoload\CSUtility.cs" />
+    <Compile Include="src\autoload\CSUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
