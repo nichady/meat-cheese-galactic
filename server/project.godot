@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Meat&Cheese Galactic 2 Server"
+config/name="Meat&Cheese Galactic Server"
 run/main_scene="res://src/menu/menu.tscn"
 config/icon="res://icon.png"
 
