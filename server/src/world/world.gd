@@ -17,15 +17,15 @@ func spawn_players():
 		var sp = $Spawnpoints/Blue if team == 0 else $Spawnpoints/Red
 		match users.size():
 			1, 3, 5:
-				points.append(sp.get_child("Front"))
+				points.append(sp.get_node("Front"))
 				continue
 			2, 3, 4, 5:
-				points.append(sp.get_child("Left1"))
-				points.append(sp.get_child("Right1"))
+				points.append(sp.get_node("Left1"))
+				points.append(sp.get_node("Right1"))
 				continue
 			4, 5:
-				points.append(sp.get_child("Left2"))
-				points.append(sp.get_child("Right2"))
+				points.append(sp.get_node("Left2"))
+				points.append(sp.get_node("Right2"))
 				continue
 		points.shuffle()
 		for i in users.size():
