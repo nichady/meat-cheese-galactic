@@ -13,3 +13,7 @@ puppet func spawn(name, entity_type, position, options): # TODO not sure if stor
 	entity.position = position
 	entity.init(entity_type, options)
 	add_child(entity, false) # TRUE instead???
+	
+	if int(name) == get_tree().get_network_unique_id():
+		get_parent().get_node("Camera").follow(entity)
+		# replace .get_root with "/root/"

@@ -45,7 +45,7 @@ func end():
 func _on_World_ready():
 	self.state = State.ACTIVE
 	for id in Lobby.users:
-		rpc_id(int(id), "start", Lobby.users[id].team)
+		rpc_id(int(id), "start", Lobby.users[id].team) # TODO dont know if team needed
 
 
 func _on_World_tree_exited():
