@@ -30,6 +30,6 @@ func spawn_players():
 		points.shuffle()
 		for i in users.size():
 			$Entities.spawn("player.trey", points[i].position, {
+				"user_id": users[i].id,
 				"team": team,
-				"user": users[i],
-			})
+			}, false)

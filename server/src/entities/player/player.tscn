@@ -13,3 +13,4 @@ inputs = {
 [node name="Polygon" type="CollisionPolygon2D" parent="Body"]
 
 [node name="Sprite" type="Sprite" parent="."]
+[connection signal="initiated" from="." to="." method="_on_initiated"]

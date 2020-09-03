@@ -7,9 +7,10 @@ const _entity_types = {
 }
 
 
-func spawn(entity_type, position, options): # TODO entity_type -> type
+func spawn(entity_type, position, options, send = true): # TODO entity_type -> type
 	var entity = _entity_types[entity_type].instance()
 	entity.position = position
 	entity.init(entity_type, options)
 	add_child(entity, false) # TRUE instead???
-	rpc("spawn", entity.name, entity_type, position, options)
+	if send:
+		rpc("spawn", entity.name, entity_type, position, options)

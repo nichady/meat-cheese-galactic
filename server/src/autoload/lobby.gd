@@ -17,6 +17,8 @@ var none_count setget , get_none_count
 
 func add_user(id, username, system_name):
 	users[id] = {
+		 # FIX THIS FOR OTHER FILES! now just need to iterate thru values and use new "id" property
+		"id": id,
 		"username": username,
 		"system_name": system_name,
 		"team": Team.BLUE,
