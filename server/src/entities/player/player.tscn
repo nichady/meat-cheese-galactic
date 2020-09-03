@@ -1,16 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/entities/player/player.gd" type="Script" id=1]
+[ext_resource path="res://src/entities/player/input.gd" type="Script" id=2]
 
 [node name="Player" type="Node2D"]
 script = ExtResource( 1 )
-inputs = {
-
-}
 
 [node name="Body" type="RigidBody2D" parent="."]
 
 [node name="Polygon" type="CollisionPolygon2D" parent="Body"]
 
 [node name="Sprite" type="Sprite" parent="."]
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource( 2 )
 [connection signal="initiated" from="." to="." method="_on_initiated"]
