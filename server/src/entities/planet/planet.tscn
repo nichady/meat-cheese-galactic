@@ -19,3 +19,4 @@ collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Body"]
 shape = ExtResource( 3 )
+[connection signal="initiated" from="." to="." method="_on_initiated"]

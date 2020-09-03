@@ -15,3 +15,4 @@ texture = ExtResource( 3 )
 
 [node name="Shape" type="CollisionShape2D" parent="Body"]
 shape = ExtResource( 2 )
+[connection signal="initiated" from="." to="." method="_on_initiated"]

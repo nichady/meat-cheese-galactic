@@ -15,9 +15,9 @@ func _on_initiated(): # replace for all!
 
 remote func input(event, pressed):
 	if not (event is String and pressed is bool):
-		return
+		rpc(event, pressed)
 	
 	if not inputs.has(event):
-		return
+		rpc(event, pressed)
 	
 	inputs.event = pressed

@@ -1,17 +1,8 @@
 extends Entity
 class_name Player
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
+# move shit here
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if int(name) == get_tree().get_network_unique_id():
+		get_parent().get_node("Camera").follow(entity)
+		# replace .get_root with "/root/"

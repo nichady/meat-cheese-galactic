@@ -7,6 +7,11 @@ const _entity_types = {
 }
 
 
+func _ready():
+	for entity in get_children():
+		entity.emit_signal("initiated")
+
+
 func spawn(entity_type, position, options, send = true): # TODO entity_type -> type
 	var entity = _entity_types[entity_type].instance()
 	entity.position = position
