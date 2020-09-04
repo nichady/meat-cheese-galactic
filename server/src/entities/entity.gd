@@ -14,3 +14,11 @@ func init(entity_type, options):
 	self.entity_type = entity_type
 	self.options = options
 	emit_signal("initiated")
+
+
+func apply_angular_velocity():
+	angular_velocity # CONTINUE HERE
+
+
+func correct():
+	rpc("correct", position, rotation, linear_velocity, angular_velocity)
