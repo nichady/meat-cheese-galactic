@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/world/world.gd" type="Script" id=1]
 [ext_resource path="res://src/world/entities.gd" type="Script" id=2]
-[ext_resource path="res://src/entities/planet/planet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/entities/planet/planet.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,13 +13,13 @@ __meta__ = {
 [node name="Entities" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="BluePlanet" parent="Entities" instance=ExtResource( 3 )]
+[node name="BluePlanet" parent="Entities" instance=ExtResource( 4 )]
 position = Vector2( 0, 1000 )
 options = {
 "team": "blue"
 }
 
-[node name="RedPlanet" parent="Entities" instance=ExtResource( 3 )]
+[node name="RedPlanet" parent="Entities" instance=ExtResource( 4 )]
 position = Vector2( 0, -1000 )
 options = {
 "team": "red"
