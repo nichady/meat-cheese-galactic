@@ -4,9 +4,13 @@ extends Node
 signal input(event, pressed)
 
 
-#export(Dictionary) var inputs
 export(Array, String) var allowed_inputs
 const inputs = { }
+
+
+func _ready():
+	for input in allowed_inputs:
+		inputs[input] = false
 
 
 remote func input(event, pressed):

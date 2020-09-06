@@ -4,7 +4,13 @@ extends Node
 signal input(event, pressed)
 
 
+export(Array, String) var allowed_inputs
 const inputs = { }
+
+
+func _ready():
+	for input in allowed_inputs:
+		inputs[input] = false
 
 
 puppet func input(event, pressed):
