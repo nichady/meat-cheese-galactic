@@ -14,14 +14,32 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/entities/entity.gd"
 }, {
+"base": "State",
+"class": "MovementState",
+"language": "GDScript",
+"path": "res://src/entities/player/movement_state.gd"
+}, {
 "base": "Entity",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/entities/player/player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/state/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/state/state_machine.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
-"Player": ""
+"MovementState": "",
+"Player": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
