@@ -3,6 +3,7 @@ class_name Player
 
 
 onready var inputs = $Input.inputs
+onready var sprite = $Sprite
 onready var movement = $Movement
 onready var steer = $Steer
 
@@ -10,10 +11,14 @@ onready var steer = $Steer
 # TODO replace all $ with onready at top
 func _on_initiated(): # replace for all! # use method instead of signal
 	name = options.user_id
+
+
+func _ready(): # decide ready or on_initiated for other classes aswell
 	if options.team == 0:
-		pass
+		sprite.material.set_shader_param("outline_color", Color.blue)
 	elif options.team == 1:
-		pass
+		rotation = PI
+		sprite.material.set_shader_param("outline_color", Color.red)
 
 
 func _on_Input_input(event, pressed):
