@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/entities/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/entities/player/input.gd" type="Script" id=2]
 [ext_resource path="res://src/entities/player/camera.gd" type="Script" id=3]
+[ext_resource path="res://src/state/state.gd" type="Script" id=4]
+[ext_resource path="res://src/state/state_machine.gd" type="Script" id=5]
+[ext_resource path="res://src/entities/player/forward.gd" type="Script" id=6]
+[ext_resource path="res://src/entities/player/left.gd" type="Script" id=7]
+[ext_resource path="res://src/entities/player/right.gd" type="Script" id=8]
 
 [node name="Player" type="RigidBody2D"]
+linear_damp = 5.0
 angular_damp = 3.0
 script = ExtResource( 1 )
 
@@ -22,4 +28,30 @@ script = ExtResource( 3 )
 
 [node name="Input" type="Node" parent="."]
 script = ExtResource( 2 )
-allowed_inputs = [ "turn_left", "turn_right", "move_forwards", "move_backwards" ]
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Still" type="Node" parent="Movement"]
+script = ExtResource( 4 )
+
+[node name="Forward" type="Node" parent="Movement"]
+script = ExtResource( 6 )
+
+[node name="Reverse" type="Node" parent="Movement"]
+script = ExtResource( 4 )
+
+[node name="Turbo" type="Node" parent="Movement"]
+script = ExtResource( 4 )
+
+[node name="Steer" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Still" type="Node" parent="Steer"]
+script = ExtResource( 4 )
+
+[node name="Left" type="Node" parent="Steer"]
+script = ExtResource( 7 )
+
+[node name="Right" type="Node" parent="Steer"]
+script = ExtResource( 8 )

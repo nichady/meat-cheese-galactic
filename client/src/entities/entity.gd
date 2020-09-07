@@ -15,8 +15,8 @@ func init(entity_type, options):
 	emit_signal("initiated")
 
 
-puppet func correct(position, rotation, linear_velocity, angular_velocity):
-	self.position = position
-	self.rotation = rotation
-	self.linear_velocity = linear_velocity
-	self.angular_velocity = angular_velocity
+puppet func correct(data):
+	self.position = data.position
+	self.rotation = data.rotation
+	self.linear_velocity = data.linear_velocity
+	self.angular_velocity = data.angular_velocity

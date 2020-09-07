@@ -22,5 +22,4 @@ remote func input(event, pressed):
 		return
 	
 	inputs[event] = pressed
-	emit_signal("input", event, pressed)
-	rpc("input", event, pressed)
+	emit_signal("input", event, pressed) # dont know if emitting parameters is needed

@@ -3,6 +3,8 @@ class_name Player
 
 
 onready var inputs = $Input.inputs
+onready var movement = $Movement
+onready var steer = $Steer
 
 
 # TODO replace all $ with onready at top
@@ -14,11 +16,15 @@ func _on_initiated(): # replace for all! # use method instead of signal
 		pass
 
 
-func _physics_process(delta):
-	if inputs.turn_left != inputs.turn_right:
-		if inputs.turn_left:
-			if angular_velocity > -1.5:
-				angular_velocity -= 1.5
-		else:
-			if angular_velocity < 1.5:
-				angular_velocity += 1.5
+func _on_Input_input(event, pressed):
+	movement.transition_to(
+		"Still" if inputs.move_forwards == inputs.move_backwards else
+		"Forward" if inputs.move_forwards else
+		"Reverse"
+	)
+	
+	steer.transition_to(
+		"Still" if inputs.turn_left == inputs.turn_right else
+		"Left" if inputs.turn_left else
+		"Right"
+	)
