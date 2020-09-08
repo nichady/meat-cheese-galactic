@@ -9,7 +9,6 @@ func _input(event):
 		return
 	
 	for input in allowed_inputs: # rename input to action
-		print(input)
 		if event.is_action(input):
 			print(input)
 			var data = {}
