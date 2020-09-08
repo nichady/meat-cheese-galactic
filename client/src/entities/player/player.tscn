@@ -35,6 +35,7 @@ script = ExtResource( 3 )
 
 [node name="Input" type="Node" parent="."]
 script = ExtResource( 2 )
+allowed_inputs = [ "turn_left", "turn_right", "move_forwards", "move_backwards", "primary_fire" ]
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource( 5 )
