@@ -5,12 +5,13 @@ export(Array, String) var allowed_inputs
 
 
 func _input(event):
-	if owner.name == str(get_tree().get_network_unique_id()):
+	if owner.name != str(get_tree().get_network_unique_id()):
 		return
 	
 	for input in allowed_inputs: # rename input to action
+		print(input)
 		if event.is_action(input):
-			
+			print(input)
 			var data = {}
 			if event.is_pressed():
 				match input:
