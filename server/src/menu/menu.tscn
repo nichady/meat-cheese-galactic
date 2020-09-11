@@ -514,9 +514,9 @@ size = Vector2( 389, 209 )
 handle_input_locally = false
 render_target_update_mode = 0
 
-[node name="Camera2D" type="Camera2D" parent="TabContainer/World/Popup/ViewportContainer/Viewport"]
+[node name="Camera" type="Camera2D" parent="TabContainer/World/Popup/ViewportContainer/Viewport"]
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 15, 15 )
 
 [node name="Label" type="Label" parent="TabContainer/World/Popup"]
 anchor_right = 1.0

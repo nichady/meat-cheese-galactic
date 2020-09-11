@@ -2,16 +2,17 @@ extends Entity
 class_name Player
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var sprite = $Sprite
+onready var camera = $Camera
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if options.team == 0:
+		sprite.material.set_shader_param("outline_color", Color.blue)
+	elif options.team == 1:
+		rotation = PI
+		sprite.material.set_shader_param("outline_color", Color.red)
+	
+	if int(name) == get_tree().get_network_unique_id():
+		camera.follow()
+		# replace all .get_root with "/root/"

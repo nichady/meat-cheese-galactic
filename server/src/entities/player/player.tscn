@@ -1,12 +1,66 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://src/entities/player/player.gd" type="Script" id=1]
+[ext_resource path="res://src/entities/entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/entities/player/input.gd" type="Script" id=2]
+[ext_resource path="res://src/entities/player/player.gd" type="Script" id=3]
+[ext_resource path="res://src/state/state_machine.gd" type="Script" id=4]
+[ext_resource path="res://src/entities/player/turbo.gd" type="Script" id=5]
+[ext_resource path="res://src/entities/player/forward.gd" type="Script" id=6]
+[ext_resource path="res://src/entities/player/still.gd" type="Script" id=7]
+[ext_resource path="res://src/entities/player/reverse.gd" type="Script" id=8]
+[ext_resource path="res://src/entities/player/left.gd" type="Script" id=9]
+[ext_resource path="res://src/state/state.gd" type="Script" id=10]
+[ext_resource path="res://src/entities/player/right.gd" type="Script" id=11]
+[ext_resource path="res://assets/shaders/outline.shader" type="Shader" id=12]
 
-[node name="Player" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 12 )
+shader_param/outline_width = 2.5
+shader_param/outline_color = Color( 0, 0, 1, 1 )
 
-[node name="Body" type="RigidBody2D" parent="."]
+[node name="Player" instance=ExtResource( 1 )]
+collision_layer = 1
+collision_mask = 1
+linear_damp = 5.0
+angular_damp = 3.0
+script = ExtResource( 3 )
+entity_type = "player"
 
-[node name="Polygon" type="CollisionPolygon2D" parent="Body"]
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="." index="0"]
+visible = false
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="1"]
+material = SubResource( 1 )
+
+[node name="Input" type="Node" parent="." index="2"]
+script = ExtResource( 2 )
+allowed_inputs = [ "turn_left", "turn_right", "move_forwards", "move_backwards", "primary_fire" ]
+
+[node name="Movement" type="Node" parent="." index="3"]
+script = ExtResource( 4 )
+
+[node name="Still" type="Node" parent="Movement" index="0"]
+script = ExtResource( 7 )
+
+[node name="Forward" type="Node" parent="Movement" index="1"]
+script = ExtResource( 6 )
+
+[node name="Reverse" type="Node" parent="Movement" index="2"]
+script = ExtResource( 8 )
+
+[node name="Turbo" type="Node" parent="Movement" index="3"]
+script = ExtResource( 5 )
+
+[node name="Steer" type="Node" parent="." index="4"]
+script = ExtResource( 4 )
+
+[node name="Still" type="Node" parent="Steer" index="0"]
+script = ExtResource( 10 )
+
+[node name="Left" type="Node" parent="Steer" index="1"]
+script = ExtResource( 9 )
+
+[node name="Right" type="Node" parent="Steer" index="2"]
+script = ExtResource( 11 )
+[connection signal="initiated" from="." to="." method="_on_initiated"]
+[connection signal="input" from="Input" to="." method="_on_Input_input"]

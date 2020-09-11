@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "RigidBody2D",
 "class": "Entity",
 "language": "GDScript",
 "path": "res://src/entities/entity.gd"
@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/entities/player/player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/state/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/state/state_machine.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
-"Player": ""
+"Player": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
