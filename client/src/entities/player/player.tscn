@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/entities/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/entities/player/input.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/entities/player/left.gd" type="Script" id=7]
 [ext_resource path="res://src/entities/player/right.gd" type="Script" id=8]
 [ext_resource path="res://assets/shaders/outline.shader" type="Shader" id=9]
+[ext_resource path="res://src/entities/player/reverse.gd" type="Script" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -47,7 +48,7 @@ script = ExtResource( 4 )
 script = ExtResource( 6 )
 
 [node name="Reverse" type="Node" parent="Movement"]
-script = ExtResource( 4 )
+script = ExtResource( 10 )
 
 [node name="Turbo" type="Node" parent="Movement"]
 script = ExtResource( 4 )
