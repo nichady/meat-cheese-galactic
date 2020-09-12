@@ -64,3 +64,12 @@ script = ExtResource( 7 )
 
 [node name="Right" type="Node" parent="Steer"]
 script = ExtResource( 8 )
+
+[node name="Fire" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Inactive" type="Node" parent="Fire"]
+script = ExtResource( 4 )
+
+[node name="Active" type="Node" parent="Fire"]
+script = ExtResource( 4 )
