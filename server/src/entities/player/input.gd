@@ -1,7 +1,7 @@
 extends Node
 
 
-signal input(event, pressed)
+signal input(event, pressed, data)
 
 
 export(Array, String) var allowed_inputs
@@ -13,7 +13,7 @@ func _ready():
 		inputs[input] = false
 
 
-remote func input(event, pressed, data): # rename event to action
+remote func input(event, pressed, data): # rename event to action # data param security.. client might be able to hack that
 	if not (event is String and pressed is bool):
 		return
 	if not allowed_inputs.has(event):
@@ -22,9 +22,4 @@ remote func input(event, pressed, data): # rename event to action
 		return
 	
 	inputs[event] = pressed
-	emit_signal("input", event, pressed) # dont know if emitting parameters is needed
-	
-	if pressed:
-		match event:
-			"primary_fire":
-				data.mouse
+	emit_signal("input", event, pressed, data) # dont know if emitting parameters is needed

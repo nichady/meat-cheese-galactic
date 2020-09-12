@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/entities/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/entities/player/input.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://src/entities/player/right.gd" type="Script" id=8]
 [ext_resource path="res://assets/shaders/outline.shader" type="Shader" id=9]
 [ext_resource path="res://src/entities/player/reverse.gd" type="Script" id=10]
+[ext_resource path="res://src/entities/player/inactive.gd" type="Script" id=11]
+[ext_resource path="res://src/entities/player/active.gd" type="Script" id=12]
+[ext_resource path="res://src/entities/player/eyeglow_blue.png" type="Texture" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
@@ -17,9 +20,13 @@ shader_param/outline_width = 2.5
 shader_param/outline_color = null
 
 [node name="Player" type="RigidBody2D"]
+position = Vector2( -0.10511, 0 )
 linear_damp = 5.0
 angular_damp = 3.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -69,7 +76,26 @@ script = ExtResource( 8 )
 script = ExtResource( 5 )
 
 [node name="Inactive" type="Node" parent="Fire"]
-script = ExtResource( 4 )
+script = ExtResource( 11 )
 
 [node name="Active" type="Node" parent="Fire"]
-script = ExtResource( 4 )
+script = ExtResource( 12 )
+
+[node name="MousePositionTimer" type="Timer" parent="Fire/Active"]
+process_mode = 0
+wait_time = 0.1
+
+[node name="LeftEye" type="Position2D" parent="."]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="LeftEye"]
+scale = Vector2( 0.25, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="RightEye" type="Position2D" parent="."]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="RightEye"]
+scale = Vector2( 0.25, 0.5 )
+texture = ExtResource( 13 )
+[connection signal="timeout" from="Fire/Active/MousePositionTimer" to="Fire/Active" method="_on_MousePositionTimer_timeout"]

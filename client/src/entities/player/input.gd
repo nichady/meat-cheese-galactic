@@ -10,7 +10,6 @@ func _input(event):
 	
 	for input in allowed_inputs: # rename input to action
 		if event.is_action(input):
-			print(input)
 			var data = {}
 			if event.is_pressed():
 				match input:

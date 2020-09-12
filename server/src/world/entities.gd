@@ -1,9 +1,10 @@
 extends Node
 
 
-const _entity_types = {
+const _entity_types = { # replace with export(PackedScene)
 	"planet": preload("res://src/entities/planet/planet.tscn"),
 	"player.trey": preload("res://src/entities/player/trey/trey.tscn"),
+	"projectile.bolt": preload("res://src/entities/projectile/bolt/bolt.tscn"),
 }
 
 

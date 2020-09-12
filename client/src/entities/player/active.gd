@@ -1,16 +1,28 @@
 extends State
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var left_eye = owner.get_node("LeftEye")
+onready var right_eye = owner.get_node("RightEye")
+
+var mouse = Vector2.ZERO
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _enter(data = {}):
+	mouse = data.mouse
+	left_eye.show()
+	right_eye.show()
+	$MousePositionTimer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _exit():
+	left_eye.hide()
+	right_eye.hide()
+	$MousePositionTimer.stop()
+
+
+func _state_process(delta):
+	pass
+
+
+func _on_MousePositionTimer_timeout():
+	rpc_id(1, "mouse", owner.get_global_mouse_position())

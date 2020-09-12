@@ -8,6 +8,8 @@ signal initiated
 export(String) var entity_type
 export(Dictionary) var options
 
+onready var entities = $"/root/Game/WorldHolder/World/Entities"
+
 
 func init(entity_type, options):
 	self.entity_type = entity_type

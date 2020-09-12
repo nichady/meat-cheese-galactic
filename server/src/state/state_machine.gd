@@ -13,7 +13,7 @@ func _physics_process(delta):
 	_state._state_process(delta)
 
 
-func transition_to(state, data = {}): # TODO dont know if data is needed; if not, replace with setter
+func transition_to(state, data = {}):
 	rpc("transition_to", state, data)
 	_state._exit()
 	_state = get_node(state)

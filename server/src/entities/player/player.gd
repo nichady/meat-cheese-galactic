@@ -2,10 +2,9 @@ extends Entity
 class_name Player
 
 
-onready var inputs = $Input.inputs
 onready var sprite = $Sprite
-onready var movement = $Movement
-onready var steer = $Steer
+onready var left_eye_sprite = $LeftEye/Sprite
+onready var right_eye_sprite = $RightEye/Sprite
 
 
 # TODO replace all $ with onready at top
@@ -19,17 +18,5 @@ func _ready(): # decide ready or on_initiated for other classes aswell
 	elif options.team == 1:
 		rotation = PI
 		sprite.material.set_shader_param("outline_color", Color.red)
-
-
-func _on_Input_input(event, pressed):
-	movement.transition_to(
-		"Still" if inputs.move_forwards == inputs.move_backwards else
-		"Forward" if inputs.move_forwards else
-		"Reverse"
-	)
-	
-	steer.transition_to(
-		"Still" if inputs.turn_left == inputs.turn_right else
-		"Left" if inputs.turn_left else
-		"Right"
-	)
+		left_eye_sprite.texture = Globals.eyeglow_red
+		right_eye_sprite.texture = Globals.eyeglow_red

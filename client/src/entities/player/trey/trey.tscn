@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/entities/player/trey/trey.gd" type="Script" id=1]
 [ext_resource path="res://src/entities/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/entities/player/trey/trey.png" type="Texture" id=3]
 
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
 [node name="Trey" instance=ExtResource( 2 )]
+position = Vector2( -0.746811, -2.84648 )
 script = ExtResource( 1 )
 
 [node name="CollisionPolygon" parent="." index="0"]
@@ -14,3 +19,17 @@ polygon = PoolVector2Array( -0.0693493, -48.6855, -15.1466, -48.8439, -29.2275, 
 position = Vector2( -1.859, -2.974 )
 scale = Vector2( 0.259, 0.268 )
 texture = ExtResource( 3 )
+
+[node name="LeftEye" parent="." index="7"]
+visible = false
+
+[node name="Sprite" parent="LeftEye" index="0"]
+material = SubResource( 1 )
+position = Vector2( -12.5079, -0.376709 )
+
+[node name="RightEye" parent="." index="8"]
+visible = false
+
+[node name="Sprite" parent="RightEye" index="0"]
+material = SubResource( 2 )
+position = Vector2( 11.9209, -0.471653 )
