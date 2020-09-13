@@ -36,7 +36,7 @@ material = SubResource( 1 )
 
 [node name="Camera" type="Camera2D" parent="."]
 rotating = true
-zoom = Vector2( 0.8, 0.8 )
+zoom = Vector2( 0.75, 0.75 )
 smoothing_enabled = true
 smoothing_speed = 20.0
 script = ExtResource( 3 )

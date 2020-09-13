@@ -16,8 +16,8 @@ position = Vector2( -1.859, -2.974 )
 scale = Vector2( 0.259, 0.268 )
 texture = ExtResource( 3 )
 
-[node name="Sprite" parent="LeftEye" index="0"]
+[node name="LeftEye" parent="." index="6"]
 position = Vector2( -12.508, -0.377 )
 
-[node name="Sprite" parent="RightEye" index="0"]
+[node name="RightEye" parent="." index="7"]
 position = Vector2( 11.921, -0.472 )

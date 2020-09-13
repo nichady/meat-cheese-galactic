@@ -5,7 +5,7 @@ export(Array, String) var allowed_inputs
 
 
 func _input(event):
-	if owner.name != str(get_tree().get_network_unique_id()):
+	if owner.name != str(get_tree().get_network_unique_id()) or event.is_echo():
 		return
 	
 	for input in allowed_inputs: # rename input to action

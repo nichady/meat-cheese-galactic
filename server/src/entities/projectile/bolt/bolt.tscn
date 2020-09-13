@@ -8,10 +8,12 @@
 extents = Vector2( 6.7, 0.94 )
 
 [node name="Bolt" instance=ExtResource( 1 )]
+contacts_reported = 1
+contact_monitor = true
 linear_damp = 0.0
 script = ExtResource( 2 )
 entity_type = "projectile.bolt"
-speed = 2500.0
+speed = 3500.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 8, 0 )
@@ -22,3 +24,4 @@ texture = ExtResource( 3 )
 [node name="CollisionShape" type="CollisionShape2D" parent="." index="1"]
 position = Vector2( 8, 0 )
 shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

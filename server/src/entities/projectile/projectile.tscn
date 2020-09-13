@@ -4,5 +4,6 @@
 [ext_resource path="res://src/entities/projectile/projectile.gd" type="Script" id=2]
 
 [node name="Projectile" instance=ExtResource( 1 )]
+collision_mask = 1
 script = ExtResource( 2 )
 entity_type = "projectile"

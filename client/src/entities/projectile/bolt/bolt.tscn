@@ -10,7 +10,7 @@ extents = Vector2( 6.7, 0.94 )
 [node name="Bolt" instance=ExtResource( 1 )]
 linear_damp = 0.0
 script = ExtResource( 3 )
-speed = 2500.0
+speed = 3500.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 8, 0 )

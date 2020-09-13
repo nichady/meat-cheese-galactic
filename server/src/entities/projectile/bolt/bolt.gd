@@ -10,3 +10,7 @@ func _ready(): # move some stuff to projecile.gd
 		sprite.texture = Globals.bolt_red
 	linear_velocity = options.direction * speed
 	rotation = options.direction.angle()
+
+
+func _on_body_entered(body): # move to projectile
+	pass # Replace with function body.

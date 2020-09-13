@@ -20,16 +20,17 @@ position = Vector2( -1.859, -2.974 )
 scale = Vector2( 0.259, 0.268 )
 texture = ExtResource( 3 )
 
+[node name="Camera" parent="." index="2"]
+smoothing_speed = 10.0
+
 [node name="LeftEye" parent="." index="7"]
-visible = false
+position = Vector2( -12.508, -0.377 )
 
 [node name="Sprite" parent="LeftEye" index="0"]
 material = SubResource( 1 )
-position = Vector2( -12.5079, -0.376709 )
 
 [node name="RightEye" parent="." index="8"]
-visible = false
+position = Vector2( 11.921, -0.472 )
 
 [node name="Sprite" parent="RightEye" index="0"]
 material = SubResource( 2 )
-position = Vector2( 11.9209, -0.471653 )
